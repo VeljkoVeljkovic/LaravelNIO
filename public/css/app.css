@@ -66,6 +66,7 @@ section {
 
 body {
   margin: 0;
+  height: 100%;
   font-family: "Nunito", sans-serif;
   font-size: 0.9rem;
   font-weight: 400;
@@ -581,6 +582,7 @@ pre code {
 
 .container {
   width: 100%;
+  height: 100%;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;

@@ -31,7 +31,8 @@ li {
 
 
 .container {
-    margin-top: 3%;
+    height: 100%;
+    padding-top: 1%;
     background-color: #F8F9FA !important;
     min-height: 100%;
      opacity: 0.9 !important;
@@ -44,18 +45,18 @@ li {
      filter: alpha(opacity=50); /* For IE8 and earlier */
 }
 
-.row {
-    margin-top: 5%;
-}
+/*.row {*/
+    /*margin-top: 5%;*/
+/*}*/
 
 html {
-  height: 100%;
+  height: 100% !important;
 }
 
 body {
     background-color: white !important;
     background-image: url('../slike/science2.png');
-    height: 100%;
+    height: 100%; !important;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;

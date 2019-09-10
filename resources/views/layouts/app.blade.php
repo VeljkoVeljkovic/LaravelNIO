@@ -24,18 +24,19 @@
 </head>
 <body>
 
+
         @include('inc.header')
-        @if(count($errors)>0)
-            @foreach($errors->all() as $error)
-                <div class="alert alert-danger">
-                    <p>{{$error}}</p>
-                </div>
-            @endforeach
-        @endif
+        {{--@if(count($errors)>0)--}}
+            {{--@foreach($errors->all() as $error)--}}
+                {{--<div class="alert alert-danger">--}}
+                    {{--<p>{{$error}}</p>--}}
+                {{--</div>--}}
+            {{--@endforeach--}}
+        {{--@endif--}}
         <div class="container">
             @yield('content')
         </div>
-    </div>
+
         <script>
 
             function prikazi(id) {
