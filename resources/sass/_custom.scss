@@ -1,0 +1,100 @@
+thumbnail:hover
+{
+    position: relative;
+    top: -25px;
+    left:-35px;
+    width:500px;
+    height: auto;
+    display:block;
+    z-index:999;
+}
+/* https://codepen.io/nxworld/pen/ZYNOBZ
+ https://miketricking.github.io/bootstrap-image-hover/ */
+
+
+
+.nav-item:hover {
+    background-color: rgba(0,0,0,0.3);
+
+}
+li {
+    border-radius: 25px;
+}
+
+.form-control {
+    background-color: rgba(0,0,0,0.3) !important;
+
+}
+
+.link {
+    color: black !important;
+}
+
+.jumbotron {
+    background-color: transparent !important;
+}
+
+  body {
+    background-color: white !important;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+img {
+	margin-bottom: 10px !important;
+}
+
+
+
+.fakeimg {
+    height: 200px;
+    background: #aaa;
+  }
+.transparent {
+    background-color: transparent !important;
+}
+
+
+
+.dugme, .form-control {
+    color: black !important;
+    border-color: white !important;
+   background-color: white !important;
+}
+.dugme:hover, .form-control:hover {
+    border-color: transparent !important;
+    border-color: black !important;
+   background-color: rgba(0,0,0,0.3) !important;
+}
+
+.projekat, #projekat
+{
+
+     color:black;
+     padding-left: 15px;
+     margin-bottom: 2px;
+   border-radius: 25px;
+   background-color: white !important;
+}
+.projekat:hover
+{
+   border: 1px solid black;
+   color: black;
+   padding-left: 15px;
+    margin-bottom: 2px;
+   border-radius: 25px;
+   background-color: rgba(0,0,0,0.3) !important;
+}
+.link1, .td, a {
+    color: black !important;
+}
+.link1:hover {
+    color: black !important;
+}
+
+.starapozadina {
+   background-color: #007FB8;
+}
