@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Poziv;
 use App\Projekat;
@@ -13,6 +13,47 @@ class ProjekatKontroler extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+public function pretragaProjakata(Request $request)
+{
+
+    $naziv = $request->input('naziv');
+    $oblastProjekta = $request->input('oblastProjekta');
+
+    if(isset($oblastProjekta))
+    {
+        $Projektifilter = DB::table('projekat')
+        ->where('oblastProjekta', $oblastProjekta)
+        ->orWhere('nazivProjekta', 'like', '%$naziv%')
+        ->orWhere('NIOrukovodioc', 'like', '%$naziv%')
+        ->get();
+    }
+    else
+    {
+
+//            $s = DB::table('projekat')->get();
+//            dd($s);
+
+        $Projektifilter = DB::table('projekat')
+            ->where('nazivProjekta', 'like', "%" . $naziv . "%")
+            ->orWhere('NIOrukovodioc', 'like', "%" . $naziv . "%")
+            ->get();
+           //dd($sviProjekti);
+
+    }
+
+       return view('projekat.admin_svi_projekti')->with('sviProjekti', $Projektifilter);
+
+
+}
+    //Uccitava sve postojece projekte na admin stranici svi projekti
+    public function total()
+    {
+        $sviProjekti = Projekat::all();
+        return view('projekat.admin_svi_projekti')->with('sviProjekti', $sviProjekti);
+
+    }
     public function index()
     {
         $pozivi = Poziv::orderBy('created_at','desc')->paginate(10);

@@ -27,7 +27,11 @@ Route::post('/dodaj', 'PitanjaPoziviKontroler@dodaj');
 
 Route::post('/obrisi', 'PitanjaPoziviKontroler@obrisi');
 
+// Projekat rute
+ //Stranica sa svim projketima gde se vrsi i pretraga preko filtera
 
+Route::get('/sviprojekti', 'ProjekatKontroler@total');
+Route::post('/projekatpretraga', 'ProjekatKontroler@pretragaProjakata');
 Route::resource('projekat', 'ProjekatKontroler');
 Route::post('/p', 'ProjekatKontroler@store');
 

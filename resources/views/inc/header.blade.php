@@ -19,6 +19,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/projekat">Projekat</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/sviprojekti">Svi projekti</a>
+                        </li>
                     @endif
                     @if(Session::get('recenzent')['rola'] == "recenzent")
                         <li class="nav-item">
