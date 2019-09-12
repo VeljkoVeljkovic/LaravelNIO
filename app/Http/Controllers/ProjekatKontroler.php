@@ -21,12 +21,11 @@ public function pretragaProjakata(Request $request)
     $naziv = $request->input('naziv');
     $oblastProjekta = $request->input('oblastProjekta');
 
-    if(isset($oblastProjekta))
+    if(!empty($oblastProjekta))
     {
         $Projektifilter = DB::table('projekat')
         ->where('oblastProjekta', $oblastProjekta)
         ->orWhere('nazivProjekta', 'like', '%$naziv%')
-        ->orWhere('NIOrukovodioc', 'like', '%$naziv%')
         ->get();
     }
     else
@@ -37,13 +36,12 @@ public function pretragaProjakata(Request $request)
 
         $Projektifilter = DB::table('projekat')
             ->where('nazivProjekta', 'like', "%" . $naziv . "%")
-            ->orWhere('NIOrukovodioc', 'like', "%" . $naziv . "%")
             ->get();
            //dd($sviProjekti);
 
     }
 
-       return view('projekat.admin_svi_projekti')->with('sviProjekti', $Projektifilter);
+       return view('projekat.admin_pretraga_projekta')->with('sviProjekti', $Projektifilter);
 
 
 }

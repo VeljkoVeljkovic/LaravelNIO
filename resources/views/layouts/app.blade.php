@@ -149,6 +149,49 @@
                 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 xhttp.send("idPoziv="+idPoziv+"&pitanje="+pitanje);
             }
+
+            function pretraga(){
+
+
+
+                var oblastProjekta=document.getElementById("oblastProjekta").value;
+                var naziv=document.getElementById("naziv").value;
+
+
+
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200)
+                    {
+                        document.getElementById("pretraga").innerHTML = "";
+                        document.getElementById("pretraga").innerHTML = this.responseText;
+                    }
+                };
+                var csrfToken = "{{ csrf_token() }}";
+                xhttp.open("POST", "/projekatpretraga", true);
+                xhttp.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                if(oblastProjekta==null){
+                    xhttp.send("naziv="+naziv);}
+                else if(naziv==null){
+                    xhttp.send("oblastProjekta="+oblastProjekta, true); }
+                else {
+                    xhttp.send("naziv="+naziv+"&oblastProjekta="+oblastProjekta, true);}
+
+            }
+
+            function prikaziProjekat(id, poziv) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200)
+                    {
+                        document.getElementById("projekat").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("GET", "", true);
+                xhttp.send();
+
+            }
         </script>
 </body>
 </html>

@@ -31,7 +31,11 @@ Route::post('/obrisi', 'PitanjaPoziviKontroler@obrisi');
  //Stranica sa svim projketima gde se vrsi i pretraga preko filtera
 
 Route::get('/sviprojekti', 'ProjekatKontroler@total');
+
+// Vrsi se filter pretraga projekata
 Route::post('/projekatpretraga', 'ProjekatKontroler@pretragaProjakata');
+
+
 Route::resource('projekat', 'ProjekatKontroler');
 Route::post('/p', 'ProjekatKontroler@store');
 
