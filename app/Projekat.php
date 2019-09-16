@@ -17,4 +17,17 @@ class Projekat extends Model
     {
         return $this->belongsTo('App\Poziv', 'pozivi_idPoziv', 'idPoziv');
     }
+
+    /**
+     *
+     */
+    public function recenzents()
+    {
+        return $this->belongsToMany(Recenzent::class);
+    }
+
+    public function projekatRadi()
+    {
+        return $this->hasMany('App\ProjekatRecenzent', 'projekat_idProjekat', 'idProjekat');
+    }
 }

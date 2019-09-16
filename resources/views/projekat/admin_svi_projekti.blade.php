@@ -30,9 +30,9 @@
 
 
             @foreach($sviProjekti as $s)
-                <div class="row card">
+                <div class="row card" onclick="prikaziProjekat({{$s->idProjekat}})">
                     <div>
-                        {{--<p><a class="link1" href="#" onclick="prikaziProjekat({{$s->idProjekat}}, {{$s->idPoziv}})">{{$s->nazivProjekta}} </a></p>--}}
+                        <p>{{$s->nazivProjekta}}</p>
                         <p class="link1">{{$s->rukovodiocProjekta}}</p>
                         <p class="link1">{{$s->oblastProjekta}}</p>
                     </div>

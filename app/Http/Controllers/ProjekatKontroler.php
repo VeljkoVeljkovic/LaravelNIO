@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Poziv;
 use App\Projekat;
-
+use App\Ocene;
+use App\ProjekatRecenzent;
+use Illuminate\Support\Facades\Storage;
 class ProjekatKontroler extends Controller
 {
     /**
@@ -119,7 +121,16 @@ public function pretragaProjakata(Request $request)
      */
     public function show($id)
     {
-        //
+        $projekat = Projekat::find($id);
+        $recenzenti = $projekat->recenzents;
+        $poziv = $projekat->pozivi_idPoziv;
+        $pitanja = Poziv::find($poziv)->pitanja()->get();
+        $directory =  Storage::files('app');
+
+        $projekatRadi = Projekat::find($id)->projekatRadi()->get();
+        $ocena = ProjekatRecenzent::find($projekatRadi[0]->id)->ocenaProjekatRecenzent()->get();
+
+        return view('projekat.admin_detalji_projekta', compact('projekat', 'recenzenti', 'pitanja', 'ocena'));
     }
 
     /**
@@ -130,7 +141,7 @@ public function pretragaProjakata(Request $request)
      */
     public function edit($id)
     {
-        //
+      //
     }
 
     /**

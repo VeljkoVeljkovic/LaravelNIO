@@ -21,4 +21,12 @@ class Recenzent extends Model
     {
         return $this->belongsTo('App\OblastStrucnosti', 'oblastStrucnosti_id', 'id');
     }
+
+    /**
+     *
+     */
+    public function projekats()
+    {
+        return $this->belongsToMany(Projekat::class);
+    }
 }
