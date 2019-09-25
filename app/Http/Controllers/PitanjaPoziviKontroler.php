@@ -9,42 +9,9 @@ use App\PitanjaPoziv;
 class PitanjaPoziviKontroler extends Controller
 {
 
-     public function dodaj(Request $request)
-    {
-        $this->validate($request, [
-          'pitanje' => 'required',
-          'idPoziv' => 'required'
-        ]);
-       
-        $id = $request->input('idPoziv');
-        
-        $pitanjePoziv = new PitanjaPoziv;
-        $pitanjePoziv->pitanje = $request->input('pitanje');
-        $pitanjePoziv->pozivi_idPoziv = $request->input('idPoziv');
-        $pitanjePoziv->save();
-
-         //Eloquent veza izbacuje sva pitanja za odredjeni poziv radi isto sto i join...
-         $pitanja= Poziv::find($pitanjePoziv);
-         $poziv = $pitanja->pitanja;
-         return view('poziv.pozivi_detalji' , compact('poziv'));
-    }
-
-     public function obrisi(Request $request)
-    {
-
-        $idPoziv = $request->input('idpoziv');
-        $idPitanja = $request->input('idpitanja');
-        $brisanje = new PitanjaPoziv;
-        $brisanje = PitanjaPoziv::find($idPitanja);
-        $brisanje->delete();
 
 
-        $pitanja= Poziv::find($idPoziv);
-        $poziv = $pitanja->pitanja;
 
-
-         return view('poziv.pozivi_detalji' , compact('poziv'));
-    }
     /**
      * Display a listing of the resource.
      *
@@ -73,7 +40,23 @@ class PitanjaPoziviKontroler extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'pitanje' => 'required',
+            'idPoziv' => 'required'
+        ]);
+
+        $id = $request->input('idPoziv');
+
+        $pitanjePoziv = new PitanjaPoziv;
+        $pitanjePoziv->pitanje = $request->input('pitanje');
+        $pitanjePoziv->pozivi_idPoziv = $request->input('idPoziv');
+        $pitanjePoziv->save();
+
+        //Eloquent veza izbacuje sva pitanja za odredjeni poziv radi isto sto i join...
+
+        $pitanja= Poziv::find($id);
+        $poziv = $pitanja->pitanja;
+        return view('poziv.pozivi_detalji' , compact('poziv'));
     }
 
     /**
@@ -116,5 +99,23 @@ class PitanjaPoziviKontroler extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-  
+    public function destroy(Request $request, $id)
+    {
+
+
+        $idpoziv = PitanjaPoziv::find($id);
+        $brisanje = new PitanjaPoziv;
+        $brisanje = PitanjaPoziv::find($id);
+        $brisanje->delete();
+
+        $id = $idpoziv->pozivi_idPoziv;
+
+        $pitanja= Poziv::find($id);
+        $poziv = $pitanja->pitanja;
+
+
+        return redirect('/pozivi')->with('status', 'Uspesno obrisano pitanje');
+    }
 }
+
+

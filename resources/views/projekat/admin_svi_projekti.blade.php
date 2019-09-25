@@ -44,6 +44,11 @@
 
 
         <div class="col-sm-8 col-12" style="margin-right: 5px;">
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
             <div id="projekat">
 
             </div>

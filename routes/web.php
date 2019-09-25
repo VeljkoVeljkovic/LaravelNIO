@@ -17,31 +17,31 @@ Route::get('/', function () {
 Route::get('home', function () {
     return view('home');
 });
-Route::get('/pozivi/{id}', 'PoziviKontroler@show');
 
 Route::resource('pozivi', 'PoziviKontroler');
 
-Route::post('/pozivi/submit', 'PoziviKontroler@submit');
 
-Route::post('/dodaj', 'PitanjaPoziviKontroler@dodaj');
 
-Route::post('/obrisi', 'PitanjaPoziviKontroler@obrisi');
+
+Route::resource('pitanjapoziv', 'PitanjaPoziviKontroler');
+
+
+
+
 
 // Projekat rute
- //Stranica sa svim projketima gde se vrsi i pretraga preko filtera
 
-Route::get('/sviprojekti', 'ProjekatKontroler@total');
 
 // Vrsi se filter pretraga projekata
 Route::post('/projekatpretraga', 'ProjekatKontroler@pretragaProjakata');
 
 
 Route::resource('projekat', 'ProjekatKontroler');
-Route::post('/p', 'ProjekatKontroler@store');
+
 
 Route::resource('recenzent', 'RecenzentKontroler');
 
 
 Auth::routes();
 
-Route::get('/pozivi', 'PoziviKontroler@index');
+

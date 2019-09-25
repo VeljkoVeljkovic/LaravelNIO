@@ -13,10 +13,10 @@ class PoziviKontroler extends Controller
     return view('poziv.pozivi')->with('pozivi', $pozivi);
    }
 
-    public function submit(Request $request)
+    public function store(Request $request)
     {
         $this->validate($request, [
-          'naziv' => 'required'
+            'naziv' => 'required'
         ]);
         $poziv = new Poziv;
         $poziv->naziv = $request->input('naziv');
@@ -24,18 +24,19 @@ class PoziviKontroler extends Controller
         return redirect('/pozivi');
     }
 
+
     /**
      *
      */
-    public function show(Request $request)
+    public function show($id)
     {
-      $id = request()->route('id');
+    // dd($id);
 //    $pitanja = PitanjaPoziv::where('pozivi_idPoziv', $id)->get();
 //     $pitanje = Poziv::find($id);
 
          $pitanja= Poziv::find($id);
          $poziv = $pitanja->pitanja;
-
+        // dd($poziv);
       return view('poziv.pozivi_detalji' , compact('poziv'));
   
     }

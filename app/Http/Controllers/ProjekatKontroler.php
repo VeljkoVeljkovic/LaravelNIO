@@ -48,16 +48,11 @@ public function pretragaProjakata(Request $request)
 
 }
     //Uccitava sve postojece projekte na admin stranici svi projekti
-    public function total()
+
+    public function index()
     {
         $sviProjekti = Projekat::all();
         return view('projekat.admin_svi_projekti')->with('sviProjekti', $sviProjekti);
-
-    }
-    public function index()
-    {
-        $pozivi = Poziv::orderBy('created_at','desc')->paginate(10);
-        return view('projekat.kreiraj_projekat')->with('pozivi', $pozivi);
     }
 
     /**
@@ -67,7 +62,8 @@ public function pretragaProjakata(Request $request)
      */
     public function create()
     {
-
+        $pozivi = Poziv::orderBy('created_at','desc')->paginate(10);
+        return view('projekat.kreiraj_projekat')->with('pozivi', $pozivi);
     }
 
     /**
@@ -141,7 +137,11 @@ public function pretragaProjakata(Request $request)
      */
     public function edit($id)
     {
-      //
+        $projekat = Projekat::find($id);
+        $poziv = $projekat->pozivi_idPoziv;
+        $pozivSelected = Poziv::find($poziv);
+        $sviPozivi = Poziv::all();
+        return view('projekat.admin_izmena_projekta', compact('projekat', 'pozivSelected', 'sviPozivi'));
     }
 
     /**
@@ -153,7 +153,45 @@ public function pretragaProjakata(Request $request)
      */
     public function update(Request $request, $id)
     {
-        //
+        if($request['dokument']!=null){
+            $file = $request['dokument'];
+
+            $naziv = Projekat::find($id);
+            $nazivDirektorijuma = $naziv->nazivProjekta;
+            $uniqueFileName = $file->getClientOriginalName();
+            $file->move(public_path('/uploads/'.$nazivDirektorijuma), $uniqueFileName);
+        }
+        $request->validate([
+
+            'nazivProjekta' => ['required', 'string', 'max:255'],
+            'rukovodiocProjekta' => ['required', 'string', 'max:255'],
+            'NIORukovodioca' => ['required', 'string', 'max:255'],
+            'zvanjeRukovodioca' => ['required', 'string', 'max:255'],
+            'angazovanjeRukovodioca' => ['required', 'string', 'max:255'],
+            'oblastProjekta' => ['required', 'string', 'max:255'],
+            'odlukaProjekta' => ['required', 'string', 'max:255'],
+            'idPoziva' => ['required', 'integer', 'max:255'],
+         //   'dokument' => ['required', 'mimes:pdf'],
+
+
+        ]);
+        $projekat = Projekat::find($id);
+        $projekat->nazivProjekta = $request['nazivProjekta'];
+        $projekat->rukovodiocProjekta = $request['rukovodiocProjekta'];
+        $projekat->NIOrukovodioc = $request['NIORukovodioca'];
+        $projekat->zvanjeRukovodioca = $request['zvanjeRukovodioca'];
+        $projekat->angazovanjeRukovodioca = $request['angazovanjeRukovodioca'];
+        $projekat->oblastProjekta = $request['oblastProjekta'];
+        $projekat->odlukaProjekta = $request['odlukaProjekta'];
+        $projekat->pozivi_idPoziv = $request['idPoziva'];
+        $projekat->save();
+
+        $uspeh = "Uspešno izvršena izmena!";
+        $projekat = Projekat::find($id);
+        $poziv = $projekat->pozivi_idPoziv;
+        $pozivSelected = Poziv::find($poziv);
+        $sviPozivi = Poziv::all();
+        return view('projekat.admin_izmena_projekta', compact('projekat', 'pozivSelected', 'sviPozivi', 'uspeh'));
     }
 
     /**
@@ -162,8 +200,11 @@ public function pretragaProjakata(Request $request)
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        //
+        $brisanje = new Projekat;
+        $brisanje = Projekat::find($id);
+        $brisanje->delete();
+        return redirect('/projekat')->with('status', 'Uspesno obrisan projekat');
     }
 }

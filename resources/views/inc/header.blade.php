@@ -17,10 +17,10 @@
                             <a class="nav-link" href="/pozivi">Poziv</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/projekat">Projekat</a>
+                            <a class="nav-link" href="/projekat/create">Projekat</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/sviprojekti">Svi projekti</a>
+                            <a class="nav-link" href="/projekat">Svi projekti</a>
                         </li>
                     @endif
                     @if(Session::get('recenzent')['rola'] == "recenzent")

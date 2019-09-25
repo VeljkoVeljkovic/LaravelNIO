@@ -16,6 +16,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -52,6 +54,7 @@
 
             }
 
+
             function dodaj() {
                 var idPoziv=document.getElementById("idPoziv").value;
                 var pitanje = document.getElementById("pitanje").value;
@@ -68,7 +71,7 @@
                     }
                 };
                 var csrfToken = "{{ csrf_token() }}";
-                xhttp.open("POST", "dodaj", true);
+                xhttp.open("POST", "pitanjapoziv", true);
                 xhttp.setRequestHeader('X-CSRF-TOKEN', csrfToken);
                 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 xhttp.send("idPoziv="+idPoziv+"&pitanje="+pitanje);
@@ -76,7 +79,7 @@
 
             }
 
-            function obrisi(idpitanja, idpoziv) {
+            function obrisi(idpitanja) {
                 if (confirm("Da li ste sigurni da zelite da obrisete pitanje"))
                 {
                     var xhttp = new XMLHttpRequest();
@@ -88,46 +91,34 @@
                         }
                     };
                     var csrfToken = "{{ csrf_token() }}";
-                    xhttp.open("POST", "obrisi", true);
+                    xhttp.open("POST", "pitanjapoziv", true);
                     xhttp.setRequestHeader('X-CSRF-TOKEN', csrfToken);
                     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                    xhttp.send("idpitanja="+idpitanja+"&idpoziv="+idpoziv);
+                    xhttp.send("idpitanja="+idpitanja);
                 }
 
             }
-//
-//            function prikaziProjekat(id, poziv) {
-//                var xhttp = new XMLHttpRequest();
-//                xhttp.onreadystatechange = function() {
-//                    if (this.readyState == 4 && this.status == 200)
-//                    {
-//                        document.getElementById("projekat").innerHTML = this.responseText;
-//                    }
-//                };
-//                xhttp.open("GET", "pozivi/"+id+"/"+poziv, true);
-//
-//                xhttp.send();
-//
-//            }
+
 
             function obrisiProjekat(id) {
                 if (confirm("Da li ste sigurni da zelite da obrisete projekat")) {
 
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function() {
-                        if (this.readyState == 4 && this.status == 200)
-                        {
+                        if (this.readyState == 4 && this.status == 200) {
 
-                            // document.getElementById("projekat").innerHTML = this.responseText;
+                     //       document.getElementById("projekat").innerHTML = this.responseText;
                         }
                     };
 
 
-                    var csrfToken = "{{ csrf_token() }}";
-                    xhttp.open("POST", "obrisi", true);
+                    var csrfToken = "{{ csrf_token('') }}";
+
+                    xhttp.open("POST", "projekti", true);
                     xhttp.setRequestHeader('X-CSRF-TOKEN', csrfToken);
                     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                    xhttp.send("idpitanja="+idpitanja+"&idpoziv="+idpoziv);
+                    xhttp.send("id="+id);
+
                 }
             }
 
@@ -189,6 +180,18 @@
                     }
                 };
                 xhttp.open("GET", "projekat/"+id, true);
+                xhttp.send();
+
+            }
+            function izmeniProjekat(id) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200)
+                    {
+                     //   document.getElementById("projekat").innerHTML = this.responseText;
+                    }
+                };
+                xhttp.open("GET", "projekat/"+id+"/edit", true);
                 xhttp.send();
 
             }

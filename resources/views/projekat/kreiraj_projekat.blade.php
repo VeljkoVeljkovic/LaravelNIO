@@ -1,7 +1,7 @@
 @extends('layouts/app')
 @section('content')
 
-    <form action="/p" enctype="multipart/form-data" method="post">
+    <form action="/projekat" enctype="multipart/form-data" method="post">
         @csrf
        <div class="row">
         <div class=" offset -1 col-sm-5 col-12 ml-2">

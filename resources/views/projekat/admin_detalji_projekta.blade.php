@@ -1,4 +1,5 @@
 <div class="row">
+    <div id="proj"></div>
     <div class="offset-1 col-sm-5 col-11">
         <table class="table table-hover link1" style="margin-top:2px;">
 
@@ -27,7 +28,9 @@
 
               @if($projekat!=null)
                  <?php   $nazivDirektorijuma=$projekat->nazivProjekta;
+               //   backshlesh
                 $dirname = public_path('\uploads\\'.$nazivDirektorijuma);
+                // Pojavljivale su se  .  i .. ispred svakog naziva fajla zato treba da se izbace
                 $images = array_diff(scandir($dirname), array(".", ".."));
 
                 ?>
@@ -45,12 +48,18 @@
         <br>
         <br>
         <div>
+            <form method="POST" action="{{ route('projekat.destroy', $projekat->idProjekat) }}">
+        @csrf
 
-            <a class="btn dugme" href="" onclick="return confirm('Da li ste sigurni da zelite da obrisete projekat?')">Obrisi projekat</a>
+            {{ method_field('delete') }}
+            <button type="submit" class="btn dugme">Obrisi projekat</button>
+
+            </form>
         </div>
         <br>
         <div>
-            <a class="btn dugme" href="">Promeni podatke</a>
+
+            <a class="btn dugme" href="projekat/{{$projekat->idProjekat}}/edit">Promeni podatke</a>
         </div>
     </div>
 </div>
@@ -58,17 +67,20 @@
     <div class="offset-1 col-5">
         <table class="table table-hover" style="margin-top:2px;">
             <tr><td><h5>Recezenti projekta:</h5></td></tr>
-
+            @if($recenzenti!=null)
             @foreach($recenzenti as $r)
                @if($r!=null)
             <tr><td ><a href="">{{$r->ime." ".$r->prezime}}</a></td></tr>
                @endif
             @endforeach
+            @endif
         </table>
     </div>
 </div>
 <div class="row">
+    @if($pitanja!=null)
 @foreach($pitanja as $p)
+
     <div class="row">
         <div class="col-4">
             <textarea class="form-control" disabled>{{$p->pitanje}}</textarea>
@@ -78,6 +90,7 @@
         <div class="8">
 
             @foreach($ocena as $o)
+
                @if($o->pitanjaPoziv_idPitanja==$p->idPitanja)
 
 
@@ -113,6 +126,9 @@
     </div>
 
 @endforeach
+    @endif
+    <script>
 
+    </script>
 </div>
 

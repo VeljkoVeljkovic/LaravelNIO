@@ -8,7 +8,7 @@
          
         </div>
           <div class="form-group row">
-            <input type="hidden" id="idPoziv" value="{{$poziv->first()->pozivi_idPoziv}}" />
+            <input type="hidden" id="idPoziv" value="{{$poziv->first()->pozivi_idPoziv??""}}" />
 
             <button class="btn" onclick='dodaj()'>Dodaj</button>
         </div>
@@ -17,7 +17,7 @@
 <div class="row" >
  <div class="offset-3 col-md-6 col-12 offset-3">
    <table class="table table-responsive"> 
-
+       @if($poziv)
        @foreach($poziv as $p)
        <tr>
            <td>
@@ -25,13 +25,20 @@
 
             </td>
             <td>
-             
-               @csrf
-              
-           <button class="btn btn-sm dugme" onclick='obrisi({{$p->idPitanja}}, {{$p->pozivi_idPoziv}})'>Obrisi</button>
+                <form method="POST" action="{{ route('pitanjapoziv.destroy', $p->idPitanja) }}">
+                    @csrf
+
+                    {{ method_field('delete') }}
+                    <button type="submit" class="btn dugme">Obrisi</button>
+
+                </form>
+
+           {{--<button class="btn btn-sm dugme" onclick='obrisi({{$p->idPitanja}})'>Obrisi</button>--}}
+
+            </td>
            </td>
        </tr>
       @endforeach
-
+      @endif
    </table>
  </div>
