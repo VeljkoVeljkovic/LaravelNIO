@@ -222,7 +222,7 @@
 
     function dodela_projekta() {
 
-        var idKorisnik=document.getElementById("idKorisnik").value;
+        var idRecenzent=document.getElementById("idRecenzent").value;
         var idProjekat = document.getElementById("idProjekat").value;
         var rokZaIzvestaj = document.getElementById("rokZaIzvestaj").value;
 
@@ -236,10 +236,34 @@
             }
         };
         var csrfToken = "{{ csrf_token() }}";
-        xhttp.open("PUT", "recenzentadmin/"+idKorisnik, true);
+        xhttp.open("POST", "recenzentadmin", true);
         xhttp.setRequestHeader('X-CSRF-TOKEN', csrfToken);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("idKorisnik="+idKorisnik+"&idProjekat="+idProjekat+"&rokZaIzvestaj="+rokZaIzvestaj);
+        xhttp.send("idRecenzent="+idRecenzent+"&idProjekat="+idProjekat+"&rokZaIzvestaj="+rokZaIzvestaj);
+
+
+    }
+
+    function statusPrijave() {
+
+        var idRecenzent=document.getElementById("idRecenzent").value;
+        var status = document.getElementById("status").value;
+
+
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200)
+            {
+
+                document.getElementById("projekat").innerHTML = this.responseText;
+            }
+        };
+        var csrfToken = "{{ csrf_token() }}";
+        xhttp.open("PUT", "recenzentadmin/"+idRecenzent, true);
+        xhttp.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("idRecenzent="+idRecenzent+"&status="+status);
 
 
     }

@@ -32,7 +32,6 @@
                 $dirname = public_path('\uploads\\'.$nazivDirektorijuma);
                 // Pojavljivale su se  .  i .. ispred svakog naziva fajla zato treba da se izbace
                 $images = array_diff(scandir($dirname), array(".", ".."));
-
                 ?>
 
                 @foreach ($images as $slika)
@@ -128,6 +127,5 @@
 @endforeach
     @endif
     <script>
-
     </script>
 </div>

@@ -29,9 +29,9 @@ class RecenzentAdminKontroler extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
     }
 
     /**
@@ -42,8 +42,13 @@ class RecenzentAdminKontroler extends Controller
      */
     public function store(Request $request)
     {
-
-    }
+        $idRecenzent = $request->input('idRecenzent');
+        $idProjekat = $request->input('idProjekat');
+        $rokZaIzvestaj = $request->input('rokZaIzvestaj');
+        $recenzent = Recenzent::find($idRecenzent);
+        $dodela =   $recenzent->projekats()->attach($idProjekat, ['rokZaIzvestaj' =>$rokZaIzvestaj]);
+     return $this->show($idRecenzent);
+  }
 
     /**
      * Display the specified resource.
@@ -57,9 +62,9 @@ class RecenzentAdminKontroler extends Controller
         $recenzent = Recenzent::find($id);
 
        $angazovanje = $recenzent->projekats;
-
-        $korIme = $recenzent->useri;
-
+      //  dd($angazovanje);
+        $kor = $recenzent->useri;
+        $korIme=$kor->name;
         $projekti = Projekat::all();
 
 
@@ -86,10 +91,12 @@ class RecenzentAdminKontroler extends Controller
      */
     public function update(Request $request, $id)
     {
-      if($request->input('rokZaIzvestaj')){
-        $dodelaProjekta = ProjekatRecenzent::find($id);
-        dd($dodelaProjekta);
-      }
+
+            $stanjePrijave = Recenzent::find($id);
+            $stanjePrijave->stanjePrijave = $this->input('status');
+            $stanjePrijave->save();
+            return $this->show($id);
+
     }
 
     /**

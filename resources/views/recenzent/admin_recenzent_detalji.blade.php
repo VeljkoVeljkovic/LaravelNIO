@@ -25,13 +25,12 @@
     </div>
     <div class="offset-1 col-sm-5 col-11">
 
-     @if(count($angazovanje)>0)
-        <?php   $nazivDirektorijuma=$korIme->name;
+
+        <?php   $nazivDirektorijuma=$korIme;
         //   backshlesh
-        $dirname = public_path('\uploads\\'.$nazivDirektorijuma);
+        $dirname = public_path('\recenzenti\\'.$nazivDirektorijuma);
         // Pojavljivale su se  .  i .. ispred svakog naziva fajla zato treba da se izbace
         $images = array_diff(scandir($dirname), array(".", ".."));
-
         ?>
 
         @foreach ($images as $slika)
@@ -40,18 +39,18 @@
                 <a  target="_blank" href="{{$dirname.'\\'.$slika}}">{{$slika}}</a>
             @endif
         @endforeach
-     @endif
+
     </div>
 </div>
     <div class="row mb-3 ml-2">
 
 
-            <h5>Angazovanje recenzenta:</h5>
+            <h5>Angazovanje recenzenta:</h5><br>
             @if(count($angazovanje)>0)
             @foreach($angazovanje as $a)
 
-                <p>Naziv projekta: {{$a->nazivProjekta}}</p>
-                <p>Rok za izveštaj: {{$a->rokZaIzvestaj}}</p>
+                Naziv projekta: {{$a->nazivProjekta}}<br>
+                Rok za izveštaj: {{$a->pivot->rokZaIzvestaj}}
 
             @endforeach
             @endif
@@ -85,7 +84,7 @@
     <div class="row ml-2">
 
 
-        @if($recenzent->statusPrijave!='registrovan')
+        @if($recenzent->stanjePrijave!='registrovan')
             <h5>Status prijave: </h5>&nbsp;&nbsp;
             <input type="hidden"  value="{{$recenzent->statusPrijave}}" disabled />
             <select id="status">
