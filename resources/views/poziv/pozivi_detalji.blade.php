@@ -1,18 +1,18 @@
-<div class="offset-1 col-10 offset-1">
+<div class="offset-1 col-10 offset-1 mt-2">
     
- <!--     <form method="POST"> -->
+
         <div class="form-group row">
-        	                 
-                        <input type="text" name="pitanje" id="pitanje"class="form-control" placeholder="Unesi pitanje" />
+
+                        <input type="text" name="pitanje" id="pitanje" class="form-control" placeholder="Unesi pitanje" />
                   
          
         </div>
           <div class="form-group row">
-            <input type="hidden" id="idPoziv" value="{{$poziv->first()->pozivi_idPoziv??""}}" />
+       <input type="hidden" id="idPoziv" value="{{$pitanja->idPoziv}}" />
 
-            <button class="btn" onclick='dodaj()'>Dodaj</button>
+            <button type="submit" class="btn" onclick='dodajPitanje()'>Dodaj</button>
         </div>
-   <!--    <form>   -->
+
     </div>
 <div class="row" >
  <div class="offset-3 col-md-6 col-12 offset-3">
@@ -25,15 +25,13 @@
 
             </td>
             <td>
-                <form method="POST" action="{{ route('pitanjapoziv.destroy', $p->idPitanja) }}">
-                    @csrf
+                {{--<form method="POST" action="{{ route('pitanjapoziv.destroy', $p->idPitanja) }}">--}}
 
-                    {{ method_field('delete') }}
-                    <button type="submit" class="btn dugme">Obrisi</button>
+                    {{--<button type="submit" class="btn dugme">Obrisi</button>--}}
 
-                </form>
+                {{--</form>--}}
 
-           {{--<button class="btn btn-sm dugme" onclick='obrisi({{$p->idPitanja}})'>Obrisi</button>--}}
+          <button type="submit" class="btn btn-sm dugme" onclick='obrisi({{$p->idPitanja}})'>Obrisi</button>
 
             </td>
            </td>

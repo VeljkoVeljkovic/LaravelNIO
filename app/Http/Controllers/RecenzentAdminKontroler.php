@@ -3,15 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Poziv;
-use App\PitanjaPoziv;
+use App\User;
+use App\Recenzent;
+use App\Projekat;
+use App\OblastStrucnosti;
+use App\ProjekatRecenzent;
 
-class PitanjaPoziviKontroler extends Controller
+class RecenzentAdminKontroler extends Controller
 {
-
-
-
-
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +18,10 @@ class PitanjaPoziviKontroler extends Controller
      */
     public function index()
     {
-        //
+        $sviRecenzenti = Recenzent::all();
+
+
+        return view('recenzent.admin_svi_recenzenti')->with('sviRecenzenti', $sviRecenzenti);
     }
 
     /**
@@ -40,24 +42,7 @@ class PitanjaPoziviKontroler extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'pitanje' => 'required',
-            'idPoziv' => 'required'
-        ]);
 
-        $id = $request->input('idPoziv');
-
-        $pitanjePoziv = new PitanjaPoziv;
-        $pitanjePoziv->pitanje = $request->input('pitanje');
-        $pitanjePoziv->pozivi_idPoziv = $request->input('idPoziv');
-        $pitanjePoziv->save();
-
-        //Eloquent veza izbacuje sva pitanja za odredjeni poziv radi isto sto i join...
-
-        $pitanja= Poziv::find($id);
-        $poziv = $pitanja->pitanja;
-     // dd($poziv);
-        return view('poziv.pozivi_detalji' , compact('poziv', 'pitanja'));
     }
 
     /**
@@ -68,7 +53,17 @@ class PitanjaPoziviKontroler extends Controller
      */
     public function show($id)
     {
-        //
+
+        $recenzent = Recenzent::find($id);
+
+       $angazovanje = $recenzent->projekats;
+
+        $korIme = $recenzent->useri;
+
+        $projekti = Projekat::all();
+
+
+        return view('recenzent.admin_recenzent_detalji', compact('recenzent', 'korIme', 'angazovanje', 'projekti'));
     }
 
     /**
@@ -91,7 +86,10 @@ class PitanjaPoziviKontroler extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      if($request->input('rokZaIzvestaj')){
+        $dodelaProjekta = ProjekatRecenzent::find($id);
+        dd($dodelaProjekta);
+      }
     }
 
     /**
@@ -100,23 +98,8 @@ class PitanjaPoziviKontroler extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request, $id)
+    public function destroy($id)
     {
-
-
-        $idpoziv = PitanjaPoziv::find($id);
-        $brisanje = new PitanjaPoziv;
-        $brisanje = PitanjaPoziv::find($id);
-        $brisanje->delete();
-
-        $id = $idpoziv->pozivi_idPoziv;
-
-        $pitanja= Poziv::find($id);
-        $poziv = $pitanja->pitanja;
-
-
-        return view('poziv.pozivi_detalji' , compact('poziv', 'pitanja'));
+        //
     }
 }
-
-

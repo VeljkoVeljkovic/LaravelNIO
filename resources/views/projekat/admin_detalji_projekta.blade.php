@@ -26,7 +26,7 @@
     <div class="offset-1 col-sm-5 col-11">
         <div>
 
-              @if($projekat!=null)
+              @if(isset($projekat))
                  <?php   $nazivDirektorijuma=$projekat->nazivProjekta;
                //   backshlesh
                 $dirname = public_path('\uploads\\'.$nazivDirektorijuma);
@@ -67,7 +67,7 @@
     <div class="offset-1 col-5">
         <table class="table table-hover" style="margin-top:2px;">
             <tr><td><h5>Recezenti projekta:</h5></td></tr>
-            @if($recenzenti!=null)
+          @if(count($recenzenti)>0)
             @foreach($recenzenti as $r)
                @if($r!=null)
             <tr><td ><a href="">{{$r->ime." ".$r->prezime}}</a></td></tr>
@@ -78,17 +78,17 @@
     </div>
 </div>
 <div class="row">
-    @if($pitanja!=null)
-@foreach($pitanja as $p)
+  @if(isset($pitanja))
+    @foreach($pitanja as $p)
 
-    <div class="row">
-        <div class="col-4">
-            <textarea class="form-control" disabled>{{$p->pitanje}}</textarea>
+        <div class="row">
+            <div class="col-4">
+                <textarea class="form-control" disabled>{{$p->pitanje}}</textarea>
         </div>
 
 
         <div class="8">
-
+         @if(isset($ocena))
             @foreach($ocena as $o)
 
                @if($o->pitanjaPoziv_idPitanja==$p->idPitanja)
@@ -114,13 +114,13 @@
 
                 <br><br>
 
-                  @endif
-                   @if($o->pitanjaPoziv_idPitanja==$p->idPitanja)
+
+                   @elseif($o->pitanjaPoziv_idPitanja==$p->idPitanja)
                        <br><br>
                    @endif
 
             @endforeach
-
+          @endif
 
         </div><br><br>
     </div>
@@ -131,4 +131,3 @@
 
     </script>
 </div>
-

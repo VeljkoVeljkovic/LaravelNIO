@@ -1,4 +1,4 @@
-@extends('layouts/app')
+@extends('basic')
 @section('content')
     <div class="row">
         <div class="ml-5 mt-5">

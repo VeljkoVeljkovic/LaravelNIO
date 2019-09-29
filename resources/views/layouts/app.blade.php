@@ -6,17 +6,16 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <script>window.Laravel = { csrfToken: '{{ csrf_token() }}' }</script>
     <title>{{ config('app.name', 'Recenzenti') }}</title>
     <meta charset="utf-8">
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    {{--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>--}}
 
 
     <!-- Styles -->
@@ -37,8 +36,17 @@
         {{--@endif--}}
         <div class="container">
             @yield('content')
+            <div id="app">
+
+
+                    <mojprojekat></mojprojekat>
+
+            </div>
         </div>
 
+
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
         <script>
 
             function prikazi(id) {

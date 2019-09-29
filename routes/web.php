@@ -41,6 +41,7 @@ Route::resource('projekat', 'ProjekatKontroler');
 
 Route::resource('recenzent', 'RecenzentKontroler');
 
+Route::resource('recenzentadmin', 'RecenzentAdminKontroler');
 
 Auth::routes();
 

@@ -27,6 +27,7 @@ class Recenzent extends Model
      */
     public function projekats()
     {
-        return $this->belongsToMany(Projekat::class);
+       // return $this->belongsToMany(Projekat::class);
+        return $this->belongsToMany('App\Projekat', 'projekat_recenzent', 'r_idRecenzent', 'p_idProjekat');
     }
 }

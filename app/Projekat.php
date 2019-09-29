@@ -23,11 +23,12 @@ class Projekat extends Model
      */
     public function recenzents()
     {
-        return $this->belongsToMany(Recenzent::class);
+      //  return $this->belongsToMany(Recenzent::class);
+        return $this->belongsToMany('App\Projekat', 'projekat_recenzent', 'p_idProjekat', 'r_idRecenzent');
     }
 
     public function projekatRadi()
     {
-        return $this->hasMany('App\ProjekatRecenzent', 'projekat_idProjekat', 'idProjekat');
+        return $this->hasMany('App\ProjekatRecenzent', 'p_idProjekat', 'idProjekat');
     }
 }

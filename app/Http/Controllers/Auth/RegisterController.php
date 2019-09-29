@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/pozivi';
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -70,6 +70,7 @@ class RegisterController extends Controller
             'dokument' => ['required', 'mimes:pdf'],
             'vebStranica' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+
         ]);
     }
 
@@ -117,6 +118,7 @@ class RegisterController extends Controller
         $recenzent->user_id = $poslednjiUser->id;
         $recenzent->oblastStrucnosti_id = $data['oblastiStrucnosti'];
         $recenzent->rola = 'recenzent';
+        $recenzent->stanjePrijave = 'razmatra_se';
         $recenzent-> save();
 
         $file = $data['dokument'];

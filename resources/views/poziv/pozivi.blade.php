@@ -1,4 +1,4 @@
-@extends('layouts/app')
+@extends('basic')
 @section('content')
 <div class="row">
   <div class="col-4 offset-4 mt-5">
@@ -16,7 +16,7 @@
 <div class="row">
     <div class="offset-1  col-sm-2 col-11">
       @foreach($pozivi as $poziv)
-        <div class="row card" onclick="prikazi({{$poziv->idPoziv}})">
+        <div class="row card card-body mb-2" onclick="prikazi({{$poziv->idPoziv}})">
             <div>
                 <p>{{$poziv->naziv}}</p>
             </div>

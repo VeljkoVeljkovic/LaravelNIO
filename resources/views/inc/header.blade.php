@@ -19,11 +19,15 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/projekat/create">Projekat</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/recenzentadmin">Svi recenzenti</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/projekat">Svi projekti</a>
                         </li>
                     @endif
-                    @if(Session::get('recenzent')['rola'] == "recenzent")
+                    @if(Session::get('recenzent')['rola'] == "recenzent" && Session::get('recenzent')['stanjePrijave'] =="registrovan")
                         <li class="nav-item">
                             <a class="nav-link" href="/recenzent">Promena Podataka</a>
                         </li>

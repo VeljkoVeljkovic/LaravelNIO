@@ -14,15 +14,20 @@ class CreateProjekatRecenzentTable extends Migration
     public function up()
     {
         Schema::create('projekat_recenzent', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('projekat_idProjekat');
-            $table->foreign('projekat_idProjekat')
+           $table->bigIncrements('id');
+            $table->unsignedBigInteger('p_idProjekat');
+            $table->foreign('p_idProjekat')
                 ->references('idProjekat')->on('projekat')
                 ->onDelete('cascade');
-            $table->unsignedBigInteger('recenzent_idRecenzent');
-            $table->foreign('recenzent_idRecenzent')
+            $table->unsignedBigInteger('r_idRecenzent');
+            $table->foreign('r_idRecenzent')
                 ->references('idRecenzent')->on('recenzent')
                 ->onDelete('cascade');
+            $table->unique(['p_idProjekat', 'r_idRecenzent']);
+            $table->date('datumPodnosenja');
+            $table->string('stanjePrijave');
+            $table->date('datumDodele');
+            $table->date('rokZaIzvestaj');
 
 
         });

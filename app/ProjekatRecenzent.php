@@ -19,7 +19,7 @@ class ProjekatRecenzent extends Pivot
 
     public function projekat()
     {
-        return $this->belongsTo('App\Projekat', 'projekat_idProjekat', 'idProjekat');
+        return $this->belongsTo('App\Projekat', 'p_idProjekat', 'idProjekat');
     }
 
 }

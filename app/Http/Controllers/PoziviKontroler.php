@@ -36,8 +36,8 @@ class PoziviKontroler extends Controller
 
          $pitanja= Poziv::find($id);
          $poziv = $pitanja->pitanja;
-        // dd($poziv);
-      return view('poziv.pozivi_detalji' , compact('poziv'));
+     //  dd($pitanja);
+      return view('poziv.pozivi_detalji' , compact('poziv', 'pitanja'));
   
     }
 }

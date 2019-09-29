@@ -36,6 +36,7 @@ class CreateRecenzentiTable extends Migration
                 ->references('id')->on('users')
                 ->onDelete('cascade');
             $table->string('rola');
+            $table->string('stanjePrijave');
         });
     }
 

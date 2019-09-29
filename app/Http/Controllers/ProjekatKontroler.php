@@ -87,11 +87,19 @@ public function pretragaProjakata(Request $request)
         ]);
 
         $file = $request->file('dokument');
+
         $nazivDirektorijuma = $request->input('nazivProjekta');
+
         if(!is_dir(public_path('/uploads/'.$nazivDirektorijuma)))
             mkdir(public_path('/uploads/'.$nazivDirektorijuma), 0777, TRUE);
         $uniqueFileName = $file->getClientOriginalName();
+
         $file->move(public_path('/uploads/'.$nazivDirektorijuma), $uniqueFileName);
+
+
+
+
+
 
         $date = date("Y-m-d H:i:s");
         $projekat= new Projekat;
@@ -121,11 +129,13 @@ public function pretragaProjakata(Request $request)
         $recenzenti = $projekat->recenzents;
         $poziv = $projekat->pozivi_idPoziv;
         $pitanja = Poziv::find($poziv)->pitanja()->get();
-        $directory =  Storage::files('app');
+      //  $directory =  Storage::files('app');
 
         $projekatRadi = Projekat::find($id)->projekatRadi()->get();
-        $ocena = ProjekatRecenzent::find($projekatRadi[0]->id)->ocenaProjekatRecenzent()->get();
-
+        if(count($projekatRadi)>0) {
+        $ocena = ProjekatRecenzent::find($projekatRadi[0]->id)->ocenaProjekatRecenzent()->get();}
+        else { $ocena = ""; }
+        
         return view('projekat.admin_detalji_projekta', compact('projekat', 'recenzenti', 'pitanja', 'ocena'));
     }
 
