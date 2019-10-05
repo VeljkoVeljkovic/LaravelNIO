@@ -28,6 +28,9 @@
                         </li>
                     @endif
                     @if(Session::get('recenzent')['rola'] == "recenzent" && Session::get('recenzent')['stanjePrijave'] =="registrovan")
+                            <li class="nav-item">
+                                <a class="nav-link" href="/ocenjivanjeprojekta">Moji Projekti</a>
+                            </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/recenzent">Promena Podataka</a>
                         </li>

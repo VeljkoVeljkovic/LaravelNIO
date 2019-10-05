@@ -267,6 +267,127 @@
 
 
     }
+
+    function prikaziMojProjekat(id) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200)
+            {
+                document.getElementById("projekat").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET", "ocenjivanjeprojekta/"+id, true);
+        xhttp.send();
+
+    }
+
+    function dodavanje_ocene(id) {
+
+        var ocena=document.getElementById("ocena"+id).value;
+        var ocenaProjekta = document.getElementById("ocenaProjekta"+id).value;
+        var projekatRadi = document.getElementById("projekatRadi"+id).value;
+        var idProjekat = document.getElementById("idProjekat"+id).value;
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200)
+            {
+
+                document.getElementById("projekat").innerHTML = this.responseText;
+            }
+        };
+        var csrfToken = "{{ csrf_token() }}";
+        xhttp.open("POST", "ocenjivanjeprojekta", true);
+        xhttp.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("id="+id+"&ocena="+ocena+"&ocenaProjekta="+ocenaProjekta+"&projekatRadi="+projekatRadi+"&idProjekat="+idProjekat);
+     }
+
+
+
+     function izmena_ocene(id) {
+
+         var ocena=document.getElementById("ocena"+id).value;
+         var ocenaProjekta = document.getElementById("ocenaProjekta"+id).value;
+         var idProjekat = document.getElementById("idProjekat"+id).value;
+         var idOcene = document.getElementById("idOcene"+id).value;
+
+         var xhttp = new XMLHttpRequest();
+         xhttp.onreadystatechange = function() {
+             if (this.readyState == 4 && this.status == 200)
+             {
+
+                 document.getElementById("projekat").innerHTML = this.responseText;
+             }
+         };
+         var csrfToken = "{{ csrf_token() }}";
+         xhttp.open("PUT", "ocenjivanjeprojekta/"+idOcene, true);
+         xhttp.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+         xhttp.send("id="+id+"&ocena="+ocena+"&ocenaProjekta="+ocenaProjekta+"&idProjekat="+idProjekat);
+      }
+
+    function obrisi_ocenu(id) {
+       var idProjekat = document.getElementById("idProjekat"+id).value;
+       var idOcene = document.getElementById("idOcene"+id).value;
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200)
+            {
+
+                document.getElementById("projekat").innerHTML = this.responseText;
+            }
+        };
+        var csrfToken = "{{ csrf_token() }}";
+        xhttp.open("DELETE", "ocenjivanjeprojekta/"+idOcene, true);
+        xhttp.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("idProjekat="+idProjekat);
+     }
+
+     function zakljucaj_ocenu(id) {
+
+         var zakljucavanje=document.getElementById("zakljucavanje"+id).value;
+         var idProjekat = document.getElementById("idProjekat"+id).value;
+         var idOcene = document.getElementById("idOcene"+id).value;
+
+         var xhttp = new XMLHttpRequest();
+         xhttp.onreadystatechange = function() {
+             if (this.readyState == 4 && this.status == 200)
+             {
+
+                 document.getElementById("projekat").innerHTML = this.responseText;
+             }
+         };
+         var csrfToken = "{{ csrf_token() }}";
+         xhttp.open("PUT", "ocenjivanjeprojekta/"+idOcene, true);
+         xhttp.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+         xhttp.send("zakljucavanje="+zakljucavanje+"&idProjekat="+idProjekat);
+      }
+
+      function predaj_izvestaj(id) {
+
+          var projekatRadi=document.getElementById("projekatRadi").value;
+          var kraj=document.getElementById("kraj").value;
+
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200)
+              {
+
+            //      document.getElementById("projekat").innerHTML = this.responseText;
+              }
+          };
+          var csrfToken = "{{ csrf_token() }}";
+          xhttp.open("PUT", "ocenjivanjeprojekta/"+id, true);
+          xhttp.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+          xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+          xhttp.send("projekatRadi="+projekatRadi+"&kraj="+kraj);
+       }
+
+
 </script>
 </body>
 </html>

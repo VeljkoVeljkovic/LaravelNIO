@@ -17,6 +17,7 @@ class CreateOceneTable extends Migration
             $table->bigIncrements('idOcene');
             $table->integer('ocenaProjekta');
             $table->string('komentarOcene');
+            $table->string('statusOcene');
             $table->unsignedBigInteger('pitanjaPoziv_idPitanja');
             $table->foreign('pitanjaPoziv_idPitanja')
                 ->references('idPitanja')->on('pitanja_pozivi')

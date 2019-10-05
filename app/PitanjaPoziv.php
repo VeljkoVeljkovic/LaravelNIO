@@ -16,6 +16,11 @@ class PitanjaPoziv extends Model
     {
         return $this->belongsTo('App\Poziv', 'pozivi_idPoziv', 'idPoziv');
     }
-}
 
- 
+    public function ocene()
+    {
+        return $this->hasMany('App\Ocene', 'pitanjaPoziv_idPitanja', 'idPitanja');
+    }
+
+
+}
