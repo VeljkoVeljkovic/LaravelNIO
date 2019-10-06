@@ -45,6 +45,8 @@ Route::resource('recenzentadmin', 'RecenzentAdminKontroler');
 
 Route::resource('ocenjivanjeprojekta', 'RecenzentOcenjivanjeProjektaKontroler');
 
+Route::resource('adminanketa', 'AdminAnketaKontroler');
+
+Route::resource('recenzentanketa', 'RecenzentAnketaKontrolor');
+
 Auth::routes();
-
-

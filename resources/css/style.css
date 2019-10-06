@@ -27,15 +27,28 @@ li {
 
 }
 
-
+.proba {
+  height: 100% !important;
+}
 
 
 .container {
-    margin-top: 3%;
+
     background-color: #F8F9FA !important;
-    min-height: 100%;
+    height: 100% !important;
      opacity: 0.9 !important;
      filter: alpha(opacity=50); /* For IE8 and earlier */
+
+}
+
+.containerjs {
+
+    background-color: #F8F9FA !important;
+    height: 100% !important;
+    width:auto;
+     opacity: 0.9 !important;
+     filter: alpha(opacity=50); /* For IE8 and earlier */
+
 }
 
 .navcolor{
@@ -48,19 +61,18 @@ li {
     margin-top: 5%;
 }
 
-html {
-  height: 100%;
+html, body {
+  background-color: white !important;
+  background-image: url('../slike/science2.png');
+  height: 100% !important;
+  margin: 0 !important;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-body {
-    background-color: white !important;
-    background-image: url('../slike/science2.png');
-    height: 100%;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+
 
 img {
 	margin-bottom: 10px !important;

@@ -1,29 +1,4 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <script>window.Laravel = { csrfToken: '{{ csrf_token() }}' }</script>
-    <title>{{ config('app.name', 'Recenzenti') }}</title>
-    <meta charset="utf-8">
-
-
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-
-
-<!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="css/app.css"> -->
-    <link rel="stylesheet" href="{{ URL::asset('/css/style.css') }}">
-</head>
-<body>
 
 
 @include('inc.header')
@@ -36,13 +11,8 @@
 {{--@endif--}}
 <div class="container">
     @yield('content')
-    <div id="app">
 
 
-
-
-    </div>
-</div>
 
 
 <!-- Scripts -->
@@ -388,6 +358,153 @@
        }
 
 
+       function prikazi_anketu(id) {
+           var xhttp = new XMLHttpRequest();
+           xhttp.onreadystatechange = function() {
+               if (this.readyState == 4 && this.status == 200)
+               {
+
+                   document.getElementById("projekat").innerHTML = this.responseText;
+               }
+           };
+           xhttp.open("GET", "adminanketa/"+id, true);
+           xhttp.send();
+
+       }
+
+       function dodaj_slobodno_pitanje(id) {
+
+           var pitanjeS=document.getElementById("pitanjeS").value;
+          if(pitanjeS==""){
+            alert("Potrebno je uneti slobodno pitanje");
+          } else{
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200)
+                {
+                    document.getElementById("pitanjeS").innerHTML = "";
+                    document.getElementById("projekat").innerHTML = this.responseText;
+                }
+            };
+            var csrfToken = "{{ csrf_token() }}";
+            xhttp.open("POST", "adminanketa", true);
+            xhttp.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("id="+id+"&pitanjeS="+pitanjeS);
+          }
+
+
+
+        }
+
+        function dodaj_pitanje(id) {
+
+            var pitanje=document.getElementById("pitanje").value;
+            var odgovor1=document.getElementById("Odgovor1").value;
+            var odgovor2=document.getElementById("Odgovor2").value;
+            var odgovor3=document.getElementById("Odgovor3").value;
+            var odgovor4=document.getElementById("Odgovor4").value;
+            if(pitanje==""||odgovor1==""||odgovor2==""||odgovor3==""||odgovor4==""){
+              alert("Potrebno je popuniti pitanje i sva četiri odgovora.");
+            } else{
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200)
+                {
+                    document.getElementById("pitanje").innerHTML = "";
+                    document.getElementById("Odgovor1").innerHTML = "";
+                    document.getElementById("Odgovor2").innerHTML = "";
+                    document.getElementById("Odgovor3").innerHTML = "";
+                    document.getElementById("Odgovor4").innerHTML = "";
+                    document.getElementById("projekat").innerHTML = this.responseText;
+                }
+            };
+            var csrfToken = "{{ csrf_token() }}";
+            xhttp.open("POST", "adminanketa", true);
+            xhttp.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("id="+id+"&pitanje="+pitanje+"&odgovor1="+odgovor1+"&odgovor2="+odgovor2+"&odgovor3="+odgovor3+"&odgovor4="+odgovor4);
+         }
+      }
+
+
+      function obrisi_pitanje_ankete(idPitanje, idAnketa) {
+         // var idProjekat = document.getElementById("idProjekat"+id).value;
+         // var idOcene = document.getElementById("idOcene"+id).value;
+
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200)
+              {
+
+                  document.getElementById("projekat").innerHTML = this.responseText;
+              }
+          };
+          var csrfToken = "{{ csrf_token() }}";
+          xhttp.open("DELETE", "adminanketa/"+idPitanje, true);
+          xhttp.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+          xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+          xhttp.send("idPitanje="+idPitanje+"&idAnketa="+idAnketa);
+       }
+
+       function zakljucavanjeAnkete(id) {
+
+
+
+           var xhttp = new XMLHttpRequest();
+           xhttp.onreadystatechange = function() {
+               if (this.readyState == 4 && this.status == 200)
+               {
+
+                 document.getElementById("projekat").innerHTML = this.responseText;
+                 alert("Anketa je zakljucana");
+               }
+           };
+           var csrfToken = "{{ csrf_token() }}";
+           xhttp.open("PUT", "adminanketa/"+id, true);
+           xhttp.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+           xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+           xhttp.send();
+        }
+
+        function dodela_ankete(id) {
+
+            var recenzent=document.getElementById("recenzent").value;
+           if(recenzent=="Selektovati recenzenta"){
+             alert("Potrebno je selektovati recenzenta");
+           } else{
+
+             var xhttp = new XMLHttpRequest();
+             xhttp.onreadystatechange = function() {
+                 if (this.readyState == 4 && this.status == 200)
+                 {
+
+                     document.getElementById("projekat").innerHTML = this.responseText;
+                     alert("Anketa je uspešno dodeljena");
+                 }
+             };
+             var csrfToken = "{{ csrf_token() }}";
+             xhttp.open("POST", "adminanketa", true);
+             xhttp.setRequestHeader('X-CSRF-TOKEN', csrfToken);
+             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+             xhttp.send("id="+id+"&recenzent="+recenzent);
+           }
+         }
+
+         function prikazi_anketu_recenzent(id) {
+             var xhttp = new XMLHttpRequest();
+             xhttp.onreadystatechange = function() {
+                 if (this.readyState == 4 && this.status == 200)
+                 {
+
+                     document.getElementById("projekat").innerHTML = this.responseText;
+                 }
+             };
+             xhttp.open("GET", "recenzentanketa/"+id, true);
+             xhttp.send();
+
+         }
+
 </script>
-</body>
-</html>
+@include('inc.footer')

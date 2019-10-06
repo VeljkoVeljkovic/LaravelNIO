@@ -28,6 +28,12 @@ class Recenzent extends Model
     public function projekats()
     {
        // return $this->belongsToMany(Projekat::class);
-        return $this->belongsToMany('App\Projekat', 'projekat_recenzent', 'r_idRecenzent', 'p_idProjekat')->withPivot('rokZaIzvestaj');;
+        return $this->belongsToMany('App\Projekat', 'projekat_recenzent', 'r_idRecenzent', 'p_idProjekat')->withPivot('rokZaIzvestaj');
+    }
+
+    public function anketas()
+    {
+       // return $this->belongsToMany(Projekat::class);
+        return $this->belongsToMany('App\Anketa', 'anketa_recenzent', 'r_idRecenzent', 'a_idAnketa')->withPivot('idAnketuRadi', 'status')->withTimestamps();
     }
 }

@@ -19,5 +19,9 @@ $(document).ready(function(){
 
 
 </script>
+</div>
+
+<div class="row fixed-bottom"></div>
+
 </body>
 </html>
