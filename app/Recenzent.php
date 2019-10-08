@@ -36,4 +36,9 @@ class Recenzent extends Model
        // return $this->belongsToMany(Projekat::class);
         return $this->belongsToMany('App\Anketa', 'anketa_recenzent', 'r_idRecenzent', 'a_idAnketa')->withPivot('idAnketuRadi', 'status')->withTimestamps();
     }
+
+    public function mojaObavestenja()
+    {
+      return $this->belongsToMany('App\Obavestenja', 'obavestenja_recenzent', 'r_idRecenzent', 'o_idObavestenja')->withPivot('idObavRec')->withTimestamps();
+    }
 }

@@ -14,7 +14,8 @@
         "laravel/framework": "6.0.*",
         "laravel/tinker": "^1.0",
         "laravel/ui": "^1.0",
-        "laravelcollective/html": "^6.0"
+        "laravelcollective/html": "^6.0",
+        "phpmailer/phpmailer": "^6.1"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

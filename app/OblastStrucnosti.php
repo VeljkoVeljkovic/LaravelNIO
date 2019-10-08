@@ -16,4 +16,7 @@ class OblastStrucnosti extends Model
     {
         return $this->hasMany('App\Recenzent', 'oblastStrucnosti_id', 'id');
     }
-}
+
+
+    }
+

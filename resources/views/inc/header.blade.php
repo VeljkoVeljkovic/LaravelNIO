@@ -21,7 +21,7 @@
 <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- <link rel="stylesheet" href="css/app.css"> -->
-    <link rel="stylesheet" href="{{ URL::asset('/css/style.css') }}">
+    <!-- <link rel="stylesheet" href="{{ URL::asset('/css/style.css') }}"> -->
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-light bg-white ">
@@ -51,6 +51,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/projekat">Svi projekti</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/adminobavestenja">Obaveštenja</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/adminanketa">Ankete</a>
