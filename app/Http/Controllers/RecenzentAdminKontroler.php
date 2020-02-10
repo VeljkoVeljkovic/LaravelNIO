@@ -91,9 +91,9 @@ class RecenzentAdminKontroler extends Controller
      */
     public function update(Request $request, $id)
     {
-
+            
             $stanjePrijave = Recenzent::find($id);
-            $stanjePrijave->stanjePrijave = $this->input('status');
+            $stanjePrijave->stanjePrijave = $request->input('status');
             $stanjePrijave->save();
             return $this->show($id);
 

@@ -71,14 +71,14 @@
                  @enderror
                </div>
            </div>
-           <div class="form-group row mb-0">
+           <div class="form-group row mb-0 mt-2">
                <div class="col-12">
                     <button class='btn dugme btn-block' onclick='dodaj_pitanje({{$anketa->idAnketa}})'>Dodaj  pitanje</button>
 
                </div>
            </div>
 
-           <div class="form-group row mb-0 mt-2">
+           <div class="form-group row mb-0 mt-2 ml-3">
                <div class="col-12">
                 <button class='btn dugme btn-block' onclick='zakljucavanjeAnkete({{$anketa->idAnketa}})'>Završi izradu ankete</button>
            </div>

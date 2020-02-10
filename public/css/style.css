@@ -31,7 +31,7 @@ li {
 
 
 .container {
-    height: 100%;
+    height: auto !important;
     padding-top: 1%;
     background-color: #F8F9FA !important;
     min-height: 100%;

@@ -1,6 +1,29 @@
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script>window.Laravel = { csrfToken: '{{ csrf_token() }}' }</script>
+    <title>{{ config('app.name', 'Recenzenti') }}</title>
+    <meta charset="utf-8">
 
 
 
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    {{--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>--}}
+
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{--<link rel="stylesheet" href="css/app.css">--}}
+    <link rel="stylesheet" href="{{ URL::asset('/css/style.css') }}">
+</head>
+<body>
 @include('inc.header')
 {{--@if(count($errors)>0)--}}
 {{--@foreach($errors->all() as $error)--}}
@@ -13,7 +36,7 @@
     @yield('content')
 
 
-
+ </div>
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
@@ -219,7 +242,7 @@
         var idRecenzent=document.getElementById("idRecenzent").value;
         var status = document.getElementById("status").value;
 
-
+        alert(status);
 
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
@@ -507,4 +530,5 @@
          }
 
 </script>
+
 @include('inc.footer')

@@ -204,5 +204,4 @@
 
             }
         </script>
-</body>
-</html>
+@include('inc.footer')

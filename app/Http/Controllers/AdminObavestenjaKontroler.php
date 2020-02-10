@@ -56,9 +56,9 @@ class AdminObavestenjaKontroler extends Controller
             $Mail->Port=587;
             $Mail->SMTPSecure="tls";
             $Mail->SMTPAuth = true;
-            $Mail->Username="tvoj email";
-            $Mail->Password="tvoj password";
-            $Mail->SetFrom("tvoj email");
+            $Mail->Username="veljkoveljkovic.mdi@gmail.com";
+            $Mail->Password="sajbervelja";
+            $Mail->SetFrom("veljkoveljkovic.mdi@gmail.com");
             $Mail->Subject = $naslov;
             $Mail->Body = $text;
             $Mail->AddAddress($email);
@@ -91,9 +91,9 @@ class AdminObavestenjaKontroler extends Controller
                 $Mail->Port = 587;
                 $Mail->SMTPSecure = "tls";
                 $Mail->SMTPAuth = true;
-                $Mail->Username="tvoj email";
-                $Mail->Password="tvoj password";
-                $Mail->SetFrom("tvoj email");
+                $Mail->Username="veljkoveljkovic.mdi@gmail.com";
+                $Mail->Password="sajbervelja";
+                $Mail->SetFrom("veljkoveljkovic.mdi@gmail.com");
                 $Mail->Subject = $naslov;
                 $Mail->Body = $text;
                 $Mail->AddAddress($r->email);

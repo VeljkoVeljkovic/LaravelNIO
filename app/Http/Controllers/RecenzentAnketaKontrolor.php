@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Anketa;
+use App\User;
 use App\AnketaOdgovori;
 use App\Recenzent;
 class RecenzentAnketaKontrolor extends Controller
@@ -15,14 +16,18 @@ class RecenzentAnketaKontrolor extends Controller
      */
     public function index()
     {
-
-      $recenzent = Recenzent::find(auth()->user()->id);
+	
+	  $user_id = auth()->user()->id;
+      $recenzent = Recenzent::where('user_id', $user_id)->get();
+	  $recenzent = Recenzent::find($recenzent[0]->idRecenzent);	
       $ankete = $recenzent->anketas;
-      $recenzent = Recenzent::find(auth()->user()->id);
-      $ankete = $recenzent->anketas;
+     
       //Ova dva reda ispod ovako moze da se izvuce ko radi anketu bez koriscenja pivot modela
+	  if(count($ankete) > 0) {
       $anketa=$ankete->toArray();
-      $anketastatus = $anketa[0]['pivot']['status'];
+      $anketastatus = $anketa[0]['pivot']['status']; } else {
+		  $anketastatus = "";
+	  }
     //  dd($anketastatus);
       return view('anketa.recenzent_ankete', compact('ankete', 'anketastatus'));
     }
@@ -76,9 +81,11 @@ class RecenzentAnketaKontrolor extends Controller
 
               }
            }
+           $user_id = auth()->user()->id;
+           $recenzent = Recenzent::where('user_id', $user_id)->get();
+	       $statusAnkete = Recenzent::find($recenzent[0]->idRecenzent);	
 
-
-           $statusAnkete = Recenzent::find(auth()->user()->id);
+         //  $statusAnkete = Recenzent::find(auth()->user()->id);
 
             $statusAnkete->anketas()->updateExistingPivot($id, ['status' => 'popunjena' ]);
 
@@ -102,10 +109,14 @@ class RecenzentAnketaKontrolor extends Controller
 
       $anketa= Anketa::find($id);
       $anketaPitanja = $anketa->pitanjaAnketa;
-
-      $recenzent = Recenzent::find(auth()->user()->id);
+      $user_id = auth()->user()->id;
+      $recenzent = Recenzent::where('user_id', $user_id)->get();
+	  $recenzent = Recenzent::find($recenzent[0]->idRecenzent);	
       $ankete = $recenzent->anketas;
+   //   $recenzent = Recenzent::find(auth()->user()->id);
+  //    $ankete = $recenzent->anketas;
       //Ova dva reda ispod ovako moze da se izvuce ko radi anketu bez koriscenja pivot modela
+	  
       $anketa=$ankete->toArray();
       $anketuradi = $anketa[0]['pivot']['idAnketuRadi'];
 

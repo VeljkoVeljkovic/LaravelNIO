@@ -71,7 +71,7 @@
         </select>
 
         <input type="date" id="rokZaIzvestaj" />
-        <input type="hidden" name="idKorisnik" id ="idKorisnik" value="{{$recenzent->idRecenzent??""}}" />&nbsp;&nbsp;&nbsp;
+        <input type="hidden" name="idKorisnik" id ="idRecenzent" value="{{$recenzent->idRecenzent??""}}" />&nbsp;&nbsp;&nbsp;
 
 
 

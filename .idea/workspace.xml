@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d49eba3f-8d04-47cb-9500-b40a16dd68d9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/OblastStrucnosti.php" afterPath="$PROJECT_DIR$/app/OblastStrucnosti.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Recenzent.php" afterPath="$PROJECT_DIR$/app/Recenzent.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/inc/header.blade.php" afterPath="$PROJECT_DIR$/resources/views/inc/header.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,52 +25,7 @@
     <favorites_list name="recenzenti" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="AdminObavestenjaKontroler.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminObavestenjaKontroler.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1070">
-              <caret line="107" column="9" lean-forward="true" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
-              <folding>
-                <element signature="e#39#63#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RecenzentOcenjivanjeProjektaKontroler.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/RecenzentOcenjivanjeProjektaKontroler.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="93" column="16" lean-forward="true" selection-start-line="86" selection-start-column="7" selection-end-line="93" selection-end-column="16" />
-              <folding>
-                <element signature="e#39#73#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="basic.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/basic.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="271" column="84" lean-forward="true" selection-start-line="270" selection-start-column="8" selection-end-line="271" selection-end-column="84" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProjekatKontroler.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProjekatKontroler.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="105" column="68" lean-forward="true" selection-start-line="105" selection-start-column="35" selection-end-line="105" selection-end-column="68" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -153,8 +103,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="311" />
     <option name="width" value="1696" />
     <option name="height" value="1026" />
   </component>
@@ -198,6 +147,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -414,14 +365,12 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="SearchEverywhereHistoryKey" value="session&#9;null&#9;null&#10;showRegistrationForm  &#9;null&#9;null&#10;App\Http\Controllers\Auth\RegisterController   &#9;null&#9;null&#10;App\Http\Controllers\Auth\RegisterController&#9;null&#9;null&#10;App\Http\Controllers\Auth\LoginController&#9;null&#9;null&#10;Illuminate\Database\Connection.php&#9;FILE&#9;file://C:/wamp/www/recenzenti/vendor/laravel/framework/src/Illuminate/Database/Connection.php&#10;Illuminate\Contracts\Auth\Authenticatable&#9;null&#9;null&#10;Illuminate\Auth\Events\Registered&#9;null&#9;null&#10;Register&#9;FILE&#9;file://C:/wamp/www/recenzenti/vendor/laravel/framework/src/Illuminate/Foundation/Auth/RegistersUsers.php&#10;showRe&#9;null&#9;null&#10;Registration&#9;FILE&#9;file://C:/wamp/www/recenzenti/vendor/laravel/framework/src/Illuminate/Routing/PendingResourceRegistration.php" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../blog" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
   </component>
@@ -554,11 +503,12 @@
       <workItem from="1569704061139" duration="13595000" />
       <workItem from="1569878606173" duration="11397000" />
       <workItem from="1570479387794" duration="8451000" />
+      <workItem from="1571686375458" duration="82000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="206373000" />
+    <option name="totallyTimeSpent" value="206455000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -570,9 +520,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <frame x="311" y="0" width="1696" height="1026" extended-state="0" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22799511" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23105134" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32997763" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22147651" sideWeight="0.502445" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -700,7 +650,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -716,7 +665,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="820" column="72" lean-forward="false" selection-start-line="820" selection-start-column="72" selection-end-line="820" selection-end-column="72" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -731,7 +679,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1394">
           <caret line="9" column="6" lean-forward="false" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -840,13 +787,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/projekat/proba.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="59" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/projekat/proba.blade.php" />
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/RecenzentAdminKontroler.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -924,27 +865,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProjekatKontroler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="105" column="68" lean-forward="true" selection-start-line="105" selection-start-column="35" selection-end-line="105" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="373">
           <caret line="51" column="33" lean-forward="false" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/basic.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="271" column="84" lean-forward="true" selection-start-line="270" selection-start-column="8" selection-end-line="271" selection-end-column="84" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -960,7 +884,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="71" column="72" lean-forward="false" selection-start-line="71" selection-start-column="57" selection-end-line="71" selection-end-column="72" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -972,10 +895,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ProjekatKontroler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1683">
+          <caret line="105" column="68" lean-forward="false" selection-start-line="105" selection-start-column="35" selection-end-line="105" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/basic.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4607">
+          <caret line="271" column="84" lean-forward="false" selection-start-line="270" selection-start-column="8" selection-end-line="271" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/RecenzentOcenjivanjeProjektaKontroler.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="93" column="16" lean-forward="true" selection-start-line="86" selection-start-column="7" selection-end-line="93" selection-end-column="16" />
+        <state relative-caret-position="1428">
+          <caret line="93" column="16" lean-forward="false" selection-start-line="86" selection-start-column="7" selection-end-line="93" selection-end-column="16" />
           <folding>
             <element signature="e#39#73#0#PHP" expanded="true" />
           </folding>
@@ -984,10 +923,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AdminObavestenjaKontroler.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1070">
-          <caret line="107" column="9" lean-forward="true" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
+        <state relative-caret-position="17">
+          <caret line="107" column="9" lean-forward="false" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
           <folding>
-            <element signature="e#39#63#0#PHP" expanded="true" />
+            <element signature="e#39#63#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -81,12 +81,12 @@
     @foreach($pitanja as $p)
 
         <div class="row">
-            <div class="col-4">
+            <div class="col-6">
                 <textarea class="form-control" disabled>{{$p->pitanje}}</textarea>
         </div>
 
 
-        <div class="8">
+        <div class="col-6">
          @if(isset($ocena))
             @foreach($ocena as $o)
 
